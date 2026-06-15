@@ -8,4 +8,3 @@ class Solution:
             elif s[i]==" " and result>0:
                 return result
         return result
-        
