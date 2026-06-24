@@ -1,12 +1,15 @@
 class Solution:
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        l,r=0,len(numbers)-1
-        while l<r:
-            cursum=numbers[l]+numbers[r]
-            if target<cursum:
-                r-=1
-            elif target>cursum:
-                l+=1
+    def findMin(self, nums: List[int]) -> int:
+        res=nums[0]
+        l,r=0,len(nums)-1
+        while l<=r:
+            if nums[l]<=nums[r]:
+                res=min(res,nums[l])
+                return res
+            m=(l+r)//2
+            res=min(res,nums[m])
+            if nums[m]>=nums[l]:
+                l=m+1
             else:
-                return[l+1,r+1]
-        return[]
+                r=m-1
+        return res
